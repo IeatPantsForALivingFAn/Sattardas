@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>List of Contributors</h1>
+{% for donor in donors %}
+
+    <h2>{{ donor.name }}</h2>
+{% endfor %}
+
+{% endblock %}

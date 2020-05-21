@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Thanks for taking the time to donate!!</h1>
+
+<div class="jumbotron">
+    <form action="{% url 'donate:summary' %}" method="POST">{% csrf_token %}
+        <script    
+                src="https://checkout.razorpay.com/v1/checkout.js"    
+                data-key="rzp_test_yPkkDyRXgbHxNk" // Key ID generated from the Dashboard    
+                data-amount="{{ amount }}" 
+                data-currency="INR"    
+                data-order_id="{{ order_id }}"
+                data-buttontext="Pay with Razorpay"    
+                data-name="Acme Corp"    
+                data-description="Test transaction"    
+                data-prefill.name="{{ name }}"      
+                data-theme.color="#F37254"></script>
+        <input type="hidden" custom="Hidden Element" name="hidden">
+    </form>
+</div>
+{% endblock %}
